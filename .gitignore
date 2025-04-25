@@ -1,0 +1,30 @@
+# Object files, binaries
+*.o
+*.out
+*.exe
+
+# CUDA intermediate files
+*.cu.*
+*.nvcc.*
+
+# Build folders
+build/
+CMakeFiles/
+cmake-build-*/
+
+# System files
+.DS_Store
+*.log
+
+# Python cache (if you use it for preprocessing)
+__pycache__/
+*.pyc
+
+# Compressed datasets
+*.gz
+*.zip
+
+# Genomic data
+*.fna
+*.fasta
+*.fa
