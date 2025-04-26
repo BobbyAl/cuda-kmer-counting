@@ -1,0 +1,16 @@
+Reading sequence from ../data/ncbi_dataset_saccharomyces_cerevisiae/ncbi_dataset/data/GCF_000146045.2/GCF_000146045.2_R64_genomic.fna...
+Sequence length: 12158327 bases
+Processing sequence in chunks of 1000000 bases
+Found 256 unique 4-mers
+GPU time: 0.0304147 seconds
+Top 10 most frequent k-mers: 
+TTTT: 685200
+AAAA: 685001
+AAAT: 674236
+ATTT: 672554
+AATT: 627775
+CAAA: 584379
+AATA: 582454
+TATT: 582228
+TTTG: 581551
+ATAT: 574277

@@ -1,0 +1,15 @@
+Read sequence from ../data/ncbi_dataset_saccharomyces_cerevisiae/ncbi_dataset/data/GCF_000146045.2/GCF_000146045.2_R64_genomic.fna...
+Sequence length: 12158327 bases
+Found 7634962 unique 12-mers
+CPU time: 5.28038 seconds
+Top 10 most frequent k-mers: 
+tttttttttttt: 2188
+aaaaaaaaaaaa: 2179
+atatatatatat: 1386
+tatatatatata: 1303
+tttttttttttc: 358
+gaaaaaaaaaaa: 358
+aaaaaaaaaaat: 337
+cttttttttttt: 335
+attttttttttt: 332
+aaaaaaaaaaag: 320

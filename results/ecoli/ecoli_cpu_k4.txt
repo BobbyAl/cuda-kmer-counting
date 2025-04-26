@@ -1,0 +1,15 @@
+Read sequence from ../data/ncbi_dataset/ncbi_dataset/data/GCF_000005845.2/GCF_000005845.2_ASM584v2_genomic.fna...
+Sequence length: 4641652 bases
+Found 256 unique 4-mers
+CPU time: 0.13497 seconds
+Top 10 most frequent k-mers: 
+CAGC: 37512
+GCTG: 36536
+TTTT: 35619
+CGCC: 35175
+AAAA: 35148
+GCGC: 35090
+GGCG: 34498
+CCAG: 34277
+CTGG: 33766
+GCCA: 31820

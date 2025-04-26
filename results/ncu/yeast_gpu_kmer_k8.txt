@@ -1,0 +1,2349 @@
+Reading sequence from ../data/ncbi_dataset_saccharomyces_cerevisiae/ncbi_dataset/data/GCF_000146045.2/GCF_000146045.2_R64_genomic.fna...
+Sequence length: 12158327 bases
+==PROF== Connected to process 206868 (/home/bobby/Documents/GitHub/cuda-kmer-counting/src/gpu_kmer)
+Processing sequence in chunks of 1000000 bases
+==PROF== Profiling "count_kmers_kernel" - 0: 0%....50%....100% - 31 passes
+==PROF== Profiling "count_kmers_kernel" - 1: 0%....50%....100% - 31 passes
+==PROF== Profiling "count_kmers_kernel" - 2: 0%....50%....100% - 31 passes
+==PROF== Profiling "count_kmers_kernel" - 3: 0%....50%....100% - 31 passes
+==PROF== Profiling "count_kmers_kernel" - 4: 0%....50%....100% - 31 passes
+==PROF== Profiling "count_kmers_kernel" - 5: 0%....50%....100% - 31 passes
+==PROF== Profiling "count_kmers_kernel" - 6: 0%....50%....100% - 31 passes
+==PROF== Profiling "count_kmers_kernel" - 7: 0%....50%....100% - 31 passes
+==PROF== Profiling "count_kmers_kernel" - 8: 0%....50%....100% - 31 passes
+==PROF== Profiling "count_kmers_kernel" - 9: 0%....50%....100% - 31 passes
+==PROF== Profiling "count_kmers_kernel" - 10: 0%....50%....100% - 31 passes
+==PROF== Profiling "count_kmers_kernel" - 11: 0%....50%....100% - 31 passes
+==PROF== Profiling "count_kmers_kernel" - 12: 0%....50%....100% - 31 passes
+Found 65536 unique 8-mers
+GPU time: 36.5682 seconds
+Top 10 most frequent k-mers: 
+AAAGATTT: 5139
+TTCTTGAA: 4920
+CAAGAAAT: 4810
+AAAGAATT: 4799
+AAACCAAA: 4771
+TTTCCAAA: 4758
+AATTTATT: 4748
+AAATCTTT: 4733
+AAATCCAA: 4721
+AAACAATT: 4688
+==PROF== Disconnected from process 206868
+[206868] gpu_kmer@127.0.0.1
+  count_kmers_kernel(const char *, int, int, unsigned int *, int) (1024, 13, 1)x(256, 1, 1), Context 1, Stream 7, Device 0, CC 7.5
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz         6.98
+    SM Frequency                    Ghz         1.37
+    Elapsed Cycles                cycle    1,604,574
+    Memory Throughput                 %        29.90
+    DRAM Throughput                   %         3.42
+    Duration                         ms         1.17
+    L1/TEX Cache Throughput           %        45.06
+    L2 Cache Throughput               %        29.90
+    SM Active Cycles              cycle 1,594,965.60
+    Compute (SM) Throughput           %        70.21
+    ----------------------- ----------- ------------
+
+    OPT   Compute is more heavily utilized than Memory: Look at the Compute Workload Analysis section to see what the   
+          compute pipelines are spending their time doing. Also, consider whether any computation is redundant and      
+          could be reduced or moved to look-up tables.                                                                  
+
+    Section: GPU Speed Of Light Roofline Chart
+    INF   The ratio of peak float (fp32) to double (fp64) performance on this device is 32:1. The workload achieved 0%  
+          of this device's fp32 peak performance and 0% of its fp64 peak performance. See the Kernel Profiling Guide    
+          (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#roofline) for more details on roofline      
+          analysis.                                                                                                     
+
+    Section: PM Sampling
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Maximum Buffer Size             Kbyte       786.43
+    Dropped Samples                sample            0
+    Maximum Sampling Interval       cycle       20,000
+    # Pass Groups                                    1
+    ------------------------- ----------- ------------
+
+    Section: Compute Workload Analysis
+    -------------------- ----------- ------------
+    Metric Name          Metric Unit Metric Value
+    -------------------- ----------- ------------
+    Executed Ipc Active   inst/cycle         2.74
+    Executed Ipc Elapsed  inst/cycle         2.73
+    Issue Slots Busy               %        70.31
+    Issued Ipc Active     inst/cycle         2.81
+    SM Busy                        %        70.31
+    -------------------- ----------- ------------
+
+    INF   ALU is the highest-utilized pipeline (43.0%) based on active cycles, taking into account the rates of its     
+          different instructions. It executes integer and logic operations. It is well-utilized, but should not be a    
+          bottleneck.                                                                                                   
+
+    Section: Memory Workload Analysis
+    ----------------- ----------- ------------
+    Metric Name       Metric Unit Metric Value
+    ----------------- ----------- ------------
+    Memory Throughput     Gbyte/s        11.47
+    Mem Busy                    %        29.23
+    Max Bandwidth               %        29.90
+    L1/TEX Hit Rate             %        31.51
+    L2 Hit Rate                 %        97.85
+    Mem Pipes Busy              %        19.97
+    ----------------- ----------- ------------
+
+    Section: Memory Workload Analysis Tables
+    OPT   Est. Speedup: 22.39%                                                                                          
+          The memory access pattern for global loads from L1TEX might not be optimal. On average, only 16.1 of the 32   
+          bytes transmitted per sector are utilized by each thread. This could possibly be caused by a stride between   
+          threads. Check the Source Counters section for uncoalesced global loads.                                      
+
+    Section: Scheduler Statistics
+    ---------------------------- ----------- ------------
+    Metric Name                  Metric Unit Metric Value
+    ---------------------------- ----------- ------------
+    One or More Eligible                   %        70.26
+    Issued Warp Per Scheduler                        0.70
+    No Eligible                            %        29.74
+    Active Warps Per Scheduler          warp         7.49
+    Eligible Warps Per Scheduler        warp         1.44
+    ---------------------------- ----------- ------------
+
+    Section: Warp State Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Warp Cycles Per Issued Instruction             cycle        10.66
+    Warp Cycles Per Executed Instruction           cycle        10.95
+    Avg. Active Threads Per Warp                                18.82
+    Avg. Not Predicated Off Threads Per Warp                    17.33
+    ---------------------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 32.18%                                                                                          
+          Instructions are executed in warps, which are groups of 32 threads. Optimal instruction throughput is         
+          achieved if all 32 threads of a warp execute the same instruction. The chosen launch configuration, early     
+          thread completion, and divergent flow control can significantly lower the number of active threads in a warp  
+          per cycle. This workload achieves an average of 18.8 threads being active per cycle. This is further reduced  
+          to 17.3 threads per warp due to predication. The compiler may use predication to avoid an actual branch.      
+          Instead, all instructions are scheduled, but a per-thread condition code or predicate controls which threads  
+          execute the instructions. Try to avoid different execution paths within a warp when possible.                 
+
+    Section: Instruction Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Avg. Executed Instructions Per Scheduler        inst 1,091,880.65
+    Executed Instructions                           inst  131,025,678
+    Avg. Issued Instructions Per Scheduler          inst 1,121,466.68
+    Issued Instructions                             inst  134,576,002
+    ---------------------------------------- ----------- ------------
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   256
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                 13,312
+    Registers Per Thread             register/thread              16
+    Shared Memory Configuration Size           Kbyte           32.77
+    Driver Shared Memory Per Block        byte/block               0
+    Dynamic Shared Memory Per Block       byte/block               0
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM              30
+    Stack Size                                                 1,024
+    Threads                                   thread       3,407,872
+    # TPCs                                                        15
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                              110.93
+    -------------------------------- --------------- ---------------
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           16
+    Block Limit Registers                 block           16
+    Block Limit Shared Mem                block           16
+    Block Limit Warps                     block            4
+    Theoretical Active Warps per SM        warp           32
+    Theoretical Occupancy                     %          100
+    Achieved Occupancy                        %        93.88
+    Achieved Active Warps Per SM           warp        30.04
+    ------------------------------- ----------- ------------
+
+    Section: GPU and Memory Workload Distribution
+    -------------------------- ----------- ------------
+    Metric Name                Metric Unit Metric Value
+    -------------------------- ----------- ------------
+    Average DRAM Active Cycles       cycle   279,191.33
+    Total DRAM Elapsed Cycles        cycle   48,946,176
+    Average L1 Active Cycles         cycle 1,594,965.60
+    Total L1 Elapsed Cycles          cycle   47,922,030
+    Average L2 Active Cycles         cycle 1,503,726.79
+    Total L2 Elapsed Cycles          cycle   36,229,560
+    Average SM Active Cycles         cycle 1,594,965.60
+    Total SM Elapsed Cycles          cycle   47,922,030
+    Average SMSP Active Cycles       cycle 1,596,131.12
+    Total SMSP Elapsed Cycles        cycle  191,688,120
+    -------------------------- ----------- ------------
+
+    Section: Source Counters
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Branch Instructions Ratio           %         0.33
+    Branch Instructions              inst   43,582,782
+    Branch Efficiency                   %        61.85
+    Avg. Divergent Branches                  77,724.43
+    ------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 71.87%                                                                                          
+          This kernel has uncoalesced global accesses resulting in a total of 11135444 excessive sectors (72% of the    
+          total 15434134 sectors). Check the L2 Theoretical Sectors Global Excessive table for the primary source       
+          locations. The CUDA Programming Guide                                                                         
+          (https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#device-memory-accesses) has additional      
+          information on reducing uncoalesced device memory accesses.                                                   
+
+  count_kmers_kernel(const char *, int, int, unsigned int *, int) (1024, 12, 1)x(256, 1, 1), Context 1, Stream 7, Device 0, CC 7.5
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz         6.99
+    SM Frequency                    Ghz         1.37
+    Elapsed Cycles                cycle    1,581,160
+    Memory Throughput                 %        29.82
+    DRAM Throughput                   %         3.42
+    Duration                         ms         1.15
+    L1/TEX Cache Throughput           %        44.90
+    L2 Cache Throughput               %        29.82
+    SM Active Cycles              cycle 1,575,761.70
+    Compute (SM) Throughput           %        70.08
+    ----------------------- ----------- ------------
+
+    OPT   Compute is more heavily utilized than Memory: Look at the Compute Workload Analysis section to see what the   
+          compute pipelines are spending their time doing. Also, consider whether any computation is redundant and      
+          could be reduced or moved to look-up tables.                                                                  
+
+    Section: GPU Speed Of Light Roofline Chart
+    INF   The ratio of peak float (fp32) to double (fp64) performance on this device is 32:1. The workload achieved 0%  
+          of this device's fp32 peak performance and 0% of its fp64 peak performance. See the Kernel Profiling Guide    
+          (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#roofline) for more details on roofline      
+          analysis.                                                                                                     
+
+    Section: PM Sampling
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Maximum Buffer Size             Kbyte       786.43
+    Dropped Samples                sample            0
+    Maximum Sampling Interval       cycle       20,000
+    # Pass Groups                                    1
+    ------------------------- ----------- ------------
+
+    Section: Compute Workload Analysis
+    -------------------- ----------- ------------
+    Metric Name          Metric Unit Metric Value
+    -------------------- ----------- ------------
+    Executed Ipc Active   inst/cycle         2.73
+    Executed Ipc Elapsed  inst/cycle         2.73
+    Issue Slots Busy               %        70.21
+    Issued Ipc Active     inst/cycle         2.81
+    SM Busy                        %        70.21
+    -------------------- ----------- ------------
+
+    INF   ALU is the highest-utilized pipeline (42.9%) based on active cycles, taking into account the rates of its     
+          different instructions. It executes integer and logic operations. It is well-utilized, but should not be a    
+          bottleneck.                                                                                                   
+
+    Section: Memory Workload Analysis
+    ----------------- ----------- ------------
+    Metric Name       Metric Unit Metric Value
+    ----------------- ----------- ------------
+    Memory Throughput     Gbyte/s        11.48
+    Mem Busy                    %        29.19
+    Max Bandwidth               %        29.82
+    L1/TEX Hit Rate             %        31.53
+    L2 Hit Rate                 %        97.85
+    Mem Pipes Busy              %        19.96
+    ----------------- ----------- ------------
+
+    Section: Memory Workload Analysis Tables
+    OPT   Est. Speedup: 22.32%                                                                                          
+          The memory access pattern for global loads from L1TEX might not be optimal. On average, only 16.1 of the 32   
+          bytes transmitted per sector are utilized by each thread. This could possibly be caused by a stride between   
+          threads. Check the Source Counters section for uncoalesced global loads.                                      
+
+    Section: Scheduler Statistics
+    ---------------------------- ----------- ------------
+    Metric Name                  Metric Unit Metric Value
+    ---------------------------- ----------- ------------
+    One or More Eligible                   %        70.30
+    Issued Warp Per Scheduler                        0.70
+    No Eligible                            %        29.70
+    Active Warps Per Scheduler          warp         7.50
+    Eligible Warps Per Scheduler        warp         1.44
+    ---------------------------- ----------- ------------
+
+    Section: Warp State Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Warp Cycles Per Issued Instruction             cycle        10.66
+    Warp Cycles Per Executed Instruction           cycle        10.95
+    Avg. Active Threads Per Warp                                18.79
+    Avg. Not Predicated Off Threads Per Warp                    17.30
+    ---------------------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 32.19%                                                                                          
+          Instructions are executed in warps, which are groups of 32 threads. Optimal instruction throughput is         
+          achieved if all 32 threads of a warp execute the same instruction. The chosen launch configuration, early     
+          thread completion, and divergent flow control can significantly lower the number of active threads in a warp  
+          per cycle. This workload achieves an average of 18.8 threads being active per cycle. This is further reduced  
+          to 17.3 threads per warp due to predication. The compiler may use predication to avoid an actual branch.      
+          Instead, all instructions are scheduled, but a per-thread condition code or predicate controls which threads  
+          execute the instructions. Try to avoid different execution paths within a warp when possible.                 
+
+    Section: Instruction Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Avg. Executed Instructions Per Scheduler        inst 1,077,052.27
+    Executed Instructions                           inst  129,246,273
+    Avg. Issued Instructions Per Scheduler          inst 1,106,336.33
+    Issued Instructions                             inst  132,760,360
+    ---------------------------------------- ----------- ------------
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   256
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                 12,288
+    Registers Per Thread             register/thread              16
+    Shared Memory Configuration Size           Kbyte           32.77
+    Driver Shared Memory Per Block        byte/block               0
+    Dynamic Shared Memory Per Block       byte/block               0
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM              30
+    Stack Size                                                 1,024
+    Threads                                   thread       3,145,728
+    # TPCs                                                        15
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                              102.40
+    -------------------------------- --------------- ---------------
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           16
+    Block Limit Registers                 block           16
+    Block Limit Shared Mem                block           16
+    Block Limit Warps                     block            4
+    Theoretical Active Warps per SM        warp           32
+    Theoretical Occupancy                     %          100
+    Achieved Occupancy                        %        93.74
+    Achieved Active Warps Per SM           warp        30.00
+    ------------------------------- ----------- ------------
+
+    Section: GPU and Memory Workload Distribution
+    -------------------------- ----------- ------------
+    Metric Name                Metric Unit Metric Value
+    -------------------------- ----------- ------------
+    Average DRAM Active Cycles       cycle      275,874
+    Total DRAM Elapsed Cycles        cycle   48,424,960
+    Average L1 Active Cycles         cycle 1,575,761.70
+    Total L1 Elapsed Cycles          cycle   47,362,970
+    Average L2 Active Cycles         cycle 1,483,714.12
+    Total L2 Elapsed Cycles          cycle   35,768,592
+    Average SM Active Cycles         cycle 1,575,761.70
+    Total SM Elapsed Cycles          cycle   47,362,970
+    Average SMSP Active Cycles       cycle 1,573,770.06
+    Total SMSP Elapsed Cycles        cycle  189,451,880
+    -------------------------- ----------- ------------
+
+    Section: Source Counters
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Branch Instructions Ratio           %         0.33
+    Branch Instructions              inst   43,024,889
+    Branch Efficiency                   %        61.80
+    Avg. Divergent Branches                  76,825.23
+    ------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 71.82%                                                                                          
+          This kernel has uncoalesced global accesses resulting in a total of 10982373 excessive sectors (72% of the    
+          total 15223063 sectors). Check the L2 Theoretical Sectors Global Excessive table for the primary source       
+          locations. The CUDA Programming Guide                                                                         
+          (https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#device-memory-accesses) has additional      
+          information on reducing uncoalesced device memory accesses.                                                   
+
+  count_kmers_kernel(const char *, int, int, unsigned int *, int) (1024, 11, 1)x(256, 1, 1), Context 1, Stream 7, Device 0, CC 7.5
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz         6.98
+    SM Frequency                    Ghz         1.37
+    Elapsed Cycles                cycle    1,451,352
+    Memory Throughput                 %        29.84
+    DRAM Throughput                   %         3.45
+    Duration                         ms         1.06
+    L1/TEX Cache Throughput           %        44.89
+    L2 Cache Throughput               %        29.84
+    SM Active Cycles              cycle 1,444,408.33
+    Compute (SM) Throughput           %        70.03
+    ----------------------- ----------- ------------
+
+    OPT   Compute is more heavily utilized than Memory: Look at the Compute Workload Analysis section to see what the   
+          compute pipelines are spending their time doing. Also, consider whether any computation is redundant and      
+          could be reduced or moved to look-up tables.                                                                  
+
+    Section: GPU Speed Of Light Roofline Chart
+    INF   The ratio of peak float (fp32) to double (fp64) performance on this device is 32:1. The workload achieved 0%  
+          of this device's fp32 peak performance and 0% of its fp64 peak performance. See the Kernel Profiling Guide    
+          (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#roofline) for more details on roofline      
+          analysis.                                                                                                     
+
+    Section: PM Sampling
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Maximum Buffer Size             Kbyte       786.43
+    Dropped Samples                sample            0
+    Maximum Sampling Interval       cycle       20,000
+    # Pass Groups                                    1
+    ------------------------- ----------- ------------
+
+    Section: Compute Workload Analysis
+    -------------------- ----------- ------------
+    Metric Name          Metric Unit Metric Value
+    -------------------- ----------- ------------
+    Executed Ipc Active   inst/cycle         2.74
+    Executed Ipc Elapsed  inst/cycle         2.73
+    Issue Slots Busy               %        70.24
+    Issued Ipc Active     inst/cycle         2.81
+    SM Busy                        %        70.24
+    -------------------- ----------- ------------
+
+    INF   ALU is the highest-utilized pipeline (43.0%) based on active cycles, taking into account the rates of its     
+          different instructions. It executes integer and logic operations. It is well-utilized, but should not be a    
+          bottleneck.                                                                                                   
+
+    Section: Memory Workload Analysis
+    ----------------- ----------- ------------
+    Metric Name       Metric Unit Metric Value
+    ----------------- ----------- ------------
+    Memory Throughput     Gbyte/s        11.57
+    Mem Busy                    %        29.20
+    Max Bandwidth               %        29.84
+    L1/TEX Hit Rate             %        31.52
+    L2 Hit Rate                 %        97.83
+    Mem Pipes Busy              %        19.95
+    ----------------- ----------- ------------
+
+    Section: Memory Workload Analysis Tables
+    OPT   Est. Speedup: 22.31%                                                                                          
+          The memory access pattern for global loads from L1TEX might not be optimal. On average, only 16.1 of the 32   
+          bytes transmitted per sector are utilized by each thread. This could possibly be caused by a stride between   
+          threads. Check the Source Counters section for uncoalesced global loads.                                      
+
+    Section: Scheduler Statistics
+    ---------------------------- ----------- ------------
+    Metric Name                  Metric Unit Metric Value
+    ---------------------------- ----------- ------------
+    One or More Eligible                   %        70.21
+    Issued Warp Per Scheduler                        0.70
+    No Eligible                            %        29.79
+    Active Warps Per Scheduler          warp         7.49
+    Eligible Warps Per Scheduler        warp         1.44
+    ---------------------------- ----------- ------------
+
+    Section: Warp State Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Warp Cycles Per Issued Instruction             cycle        10.67
+    Warp Cycles Per Executed Instruction           cycle        10.96
+    Avg. Active Threads Per Warp                                18.79
+    Avg. Not Predicated Off Threads Per Warp                    17.31
+    ---------------------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 32.16%                                                                                          
+          Instructions are executed in warps, which are groups of 32 threads. Optimal instruction throughput is         
+          achieved if all 32 threads of a warp execute the same instruction. The chosen launch configuration, early     
+          thread completion, and divergent flow control can significantly lower the number of active threads in a warp  
+          per cycle. This workload achieves an average of 18.8 threads being active per cycle. This is further reduced  
+          to 17.3 threads per warp due to predication. The compiler may use predication to avoid an actual branch.      
+          Instead, all instructions are scheduled, but a per-thread condition code or predicate controls which threads  
+          execute the instructions. Try to avoid different execution paths within a warp when possible.                 
+
+    Section: Instruction Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Avg. Executed Instructions Per Scheduler        inst   987,754.88
+    Executed Instructions                           inst  118,530,586
+    Avg. Issued Instructions Per Scheduler          inst 1,014,603.84
+    Issued Instructions                             inst  121,752,461
+    ---------------------------------------- ----------- ------------
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   256
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                 11,264
+    Registers Per Thread             register/thread              16
+    Shared Memory Configuration Size           Kbyte           32.77
+    Driver Shared Memory Per Block        byte/block               0
+    Dynamic Shared Memory Per Block       byte/block               0
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM              30
+    Stack Size                                                 1,024
+    Threads                                   thread       2,883,584
+    # TPCs                                                        15
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                               93.87
+    -------------------------------- --------------- ---------------
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           16
+    Block Limit Registers                 block           16
+    Block Limit Shared Mem                block           16
+    Block Limit Warps                     block            4
+    Theoretical Active Warps per SM        warp           32
+    Theoretical Occupancy                     %          100
+    Achieved Occupancy                        %        93.77
+    Achieved Active Warps Per SM           warp        30.01
+    ------------------------------- ----------- ------------
+
+    Section: GPU and Memory Workload Distribution
+    -------------------------- ----------- ------------
+    Metric Name                Metric Unit Metric Value
+    -------------------------- ----------- ------------
+    Average DRAM Active Cycles       cycle      255,244
+    Total DRAM Elapsed Cycles        cycle   44,363,776
+    Average L1 Active Cycles         cycle 1,444,408.33
+    Total L1 Elapsed Cycles          cycle   43,463,980
+    Average L2 Active Cycles         cycle 1,361,929.54
+    Total L2 Elapsed Cycles          cycle   32,811,744
+    Average SM Active Cycles         cycle 1,444,408.33
+    Total SM Elapsed Cycles          cycle   43,463,980
+    Average SMSP Active Cycles       cycle 1,445,032.12
+    Total SMSP Elapsed Cycles        cycle  173,855,920
+    -------------------------- ----------- ------------
+
+    Section: Source Counters
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Branch Instructions Ratio           %         0.33
+    Branch Instructions              inst   39,457,797
+    Branch Efficiency                   %        61.80
+    Avg. Divergent Branches                  70,453.41
+    ------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 71.87%                                                                                          
+          This kernel has uncoalesced global accesses resulting in a total of 10076422 excessive sectors (72% of the    
+          total 13965977 sectors). Check the L2 Theoretical Sectors Global Excessive table for the primary source       
+          locations. The CUDA Programming Guide                                                                         
+          (https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#device-memory-accesses) has additional      
+          information on reducing uncoalesced device memory accesses.                                                   
+
+  count_kmers_kernel(const char *, int, int, unsigned int *, int) (1024, 10, 1)x(256, 1, 1), Context 1, Stream 7, Device 0, CC 7.5
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz         6.99
+    SM Frequency                    Ghz         1.37
+    Elapsed Cycles                cycle    1,320,698
+    Memory Throughput                 %        29.80
+    DRAM Throughput                   %         3.49
+    Duration                         us       962.75
+    L1/TEX Cache Throughput           %        44.87
+    L2 Cache Throughput               %        29.80
+    SM Active Cycles              cycle 1,313,723.20
+    Compute (SM) Throughput           %        70.01
+    ----------------------- ----------- ------------
+
+    OPT   Compute is more heavily utilized than Memory: Look at the Compute Workload Analysis section to see what the   
+          compute pipelines are spending their time doing. Also, consider whether any computation is redundant and      
+          could be reduced or moved to look-up tables.                                                                  
+
+    Section: GPU Speed Of Light Roofline Chart
+    INF   The ratio of peak float (fp32) to double (fp64) performance on this device is 32:1. The workload achieved 0%  
+          of this device's fp32 peak performance and 0% of its fp64 peak performance. See the Kernel Profiling Guide    
+          (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#roofline) for more details on roofline      
+          analysis.                                                                                                     
+
+    Section: PM Sampling
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Maximum Buffer Size             Kbyte       786.43
+    Dropped Samples                sample            0
+    Maximum Sampling Interval       cycle       20,000
+    # Pass Groups                                    1
+    ------------------------- ----------- ------------
+
+    Section: Compute Workload Analysis
+    -------------------- ----------- ------------
+    Metric Name          Metric Unit Metric Value
+    -------------------- ----------- ------------
+    Executed Ipc Active   inst/cycle         2.73
+    Executed Ipc Elapsed  inst/cycle         2.73
+    Issue Slots Busy               %        70.19
+    Issued Ipc Active     inst/cycle         2.81
+    SM Busy                        %        70.19
+    -------------------- ----------- ------------
+
+    INF   ALU is the highest-utilized pipeline (42.9%) based on active cycles, taking into account the rates of its     
+          different instructions. It executes integer and logic operations. It is well-utilized, but should not be a    
+          bottleneck.                                                                                                   
+
+    Section: Memory Workload Analysis
+    ----------------- ----------- ------------
+    Metric Name       Metric Unit Metric Value
+    ----------------- ----------- ------------
+    Memory Throughput     Gbyte/s        11.72
+    Mem Busy                    %        29.17
+    Max Bandwidth               %        29.80
+    L1/TEX Hit Rate             %        31.52
+    L2 Hit Rate                 %        97.83
+    Mem Pipes Busy              %        19.94
+    ----------------- ----------- ------------
+
+    Section: Memory Workload Analysis Tables
+    OPT   Est. Speedup: 22.3%                                                                                           
+          The memory access pattern for global loads from L1TEX might not be optimal. On average, only 16.1 of the 32   
+          bytes transmitted per sector are utilized by each thread. This could possibly be caused by a stride between   
+          threads. Check the Source Counters section for uncoalesced global loads.                                      
+
+    Section: Scheduler Statistics
+    ---------------------------- ----------- ------------
+    Metric Name                  Metric Unit Metric Value
+    ---------------------------- ----------- ------------
+    One or More Eligible                   %        70.26
+    Issued Warp Per Scheduler                        0.70
+    No Eligible                            %        29.74
+    Active Warps Per Scheduler          warp         7.50
+    Eligible Warps Per Scheduler        warp         1.44
+    ---------------------------- ----------- ------------
+
+    Section: Warp State Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Warp Cycles Per Issued Instruction             cycle        10.68
+    Warp Cycles Per Executed Instruction           cycle        10.97
+    Avg. Active Threads Per Warp                                18.79
+    Avg. Not Predicated Off Threads Per Warp                    17.30
+    ---------------------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 32.15%                                                                                          
+          Instructions are executed in warps, which are groups of 32 threads. Optimal instruction throughput is         
+          achieved if all 32 threads of a warp execute the same instruction. The chosen launch configuration, early     
+          thread completion, and divergent flow control can significantly lower the number of active threads in a warp  
+          per cycle. This workload achieves an average of 18.8 threads being active per cycle. This is further reduced  
+          to 17.3 threads per warp due to predication. The compiler may use predication to avoid an actual branch.      
+          Instead, all instructions are scheduled, but a per-thread condition code or predicate controls which threads  
+          execute the instructions. Try to avoid different execution paths within a warp when possible.                 
+
+    Section: Instruction Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Avg. Executed Instructions Per Scheduler        inst   897,711.01
+    Executed Instructions                           inst  107,725,321
+    Avg. Issued Instructions Per Scheduler          inst   922,119.89
+    Issued Instructions                             inst  110,654,387
+    ---------------------------------------- ----------- ------------
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   256
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                 10,240
+    Registers Per Thread             register/thread              16
+    Shared Memory Configuration Size           Kbyte           32.77
+    Driver Shared Memory Per Block        byte/block               0
+    Dynamic Shared Memory Per Block       byte/block               0
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM              30
+    Stack Size                                                 1,024
+    Threads                                   thread       2,621,440
+    # TPCs                                                        15
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                               85.33
+    -------------------------------- --------------- ---------------
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           16
+    Block Limit Registers                 block           16
+    Block Limit Shared Mem                block           16
+    Block Limit Warps                     block            4
+    Theoretical Active Warps per SM        warp           32
+    Theoretical Occupancy                     %          100
+    Achieved Occupancy                        %        93.70
+    Achieved Active Warps Per SM           warp        29.98
+    ------------------------------- ----------- ------------
+
+    Section: GPU and Memory Workload Distribution
+    -------------------------- ----------- ------------
+    Metric Name                Metric Unit Metric Value
+    -------------------------- ----------- ------------
+    Average DRAM Active Cycles       cycle      235,138
+    Total DRAM Elapsed Cycles        cycle   40,374,272
+    Average L1 Active Cycles         cycle 1,313,723.20
+    Total L1 Elapsed Cycles          cycle   39,513,770
+    Average L2 Active Cycles         cycle 1,235,795.62
+    Total L2 Elapsed Cycles          cycle   29,846,520
+    Average SM Active Cycles         cycle 1,313,723.20
+    Total SM Elapsed Cycles          cycle   39,513,770
+    Average SMSP Active Cycles       cycle 1,312,413.17
+    Total SMSP Elapsed Cycles        cycle  158,055,080
+    -------------------------- ----------- ------------
+
+    Section: Source Counters
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Branch Instructions Ratio           %         0.33
+    Branch Instructions              inst   35,860,757
+    Branch Efficiency                   %        61.81
+    Avg. Divergent Branches                  64,030.13
+    ------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 71.69%                                                                                          
+          This kernel has uncoalesced global accesses resulting in a total of 9156315 excessive sectors (72% of the     
+          total 12691124 sectors). Check the L2 Theoretical Sectors Global Excessive table for the primary source       
+          locations. The CUDA Programming Guide                                                                         
+          (https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#device-memory-accesses) has additional      
+          information on reducing uncoalesced device memory accesses.                                                   
+
+  count_kmers_kernel(const char *, int, int, unsigned int *, int) (1024, 9, 1)x(256, 1, 1), Context 1, Stream 7, Device 0, CC 7.5
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz         6.99
+    SM Frequency                    Ghz         1.37
+    Elapsed Cycles                cycle    1,187,624
+    Memory Throughput                 %        29.77
+    DRAM Throughput                   %         4.29
+    Duration                         us       866.82
+    L1/TEX Cache Throughput           %        44.82
+    L2 Cache Throughput               %        29.77
+    SM Active Cycles              cycle 1,182,861.70
+    Compute (SM) Throughput           %        69.99
+    ----------------------- ----------- ------------
+
+    OPT   Compute is more heavily utilized than Memory: Look at the Compute Workload Analysis section to see what the   
+          compute pipelines are spending their time doing. Also, consider whether any computation is redundant and      
+          could be reduced or moved to look-up tables.                                                                  
+
+    Section: GPU Speed Of Light Roofline Chart
+    INF   The ratio of peak float (fp32) to double (fp64) performance on this device is 32:1. The workload achieved 0%  
+          of this device's fp32 peak performance and 0% of its fp64 peak performance. See the Kernel Profiling Guide    
+          (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#roofline) for more details on roofline      
+          analysis.                                                                                                     
+
+    Section: PM Sampling
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Maximum Buffer Size             Kbyte       786.43
+    Dropped Samples                sample            0
+    Maximum Sampling Interval       cycle       20,000
+    # Pass Groups                                    1
+    ------------------------- ----------- ------------
+
+    Section: Compute Workload Analysis
+    -------------------- ----------- ------------
+    Metric Name          Metric Unit Metric Value
+    -------------------- ----------- ------------
+    Executed Ipc Active   inst/cycle         2.73
+    Executed Ipc Elapsed  inst/cycle         2.73
+    Issue Slots Busy               %        70.13
+    Issued Ipc Active     inst/cycle         2.81
+    SM Busy                        %        70.13
+    -------------------- ----------- ------------
+
+    INF   ALU is the highest-utilized pipeline (42.9%) based on active cycles, taking into account the rates of its     
+          different instructions. It executes integer and logic operations. It is well-utilized, but should not be a    
+          bottleneck.                                                                                                   
+
+    Section: Memory Workload Analysis
+    ----------------- ----------- ------------
+    Metric Name       Metric Unit Metric Value
+    ----------------- ----------- ------------
+    Memory Throughput     Gbyte/s        14.39
+    Mem Busy                    %        29.15
+    Max Bandwidth               %        29.77
+    L1/TEX Hit Rate             %        31.53
+    L2 Hit Rate                 %        97.81
+    Mem Pipes Busy              %        19.93
+    ----------------- ----------- ------------
+
+    Section: Memory Workload Analysis Tables
+    OPT   Est. Speedup: 22.28%                                                                                          
+          The memory access pattern for global loads from L1TEX might not be optimal. On average, only 16.1 of the 32   
+          bytes transmitted per sector are utilized by each thread. This could possibly be caused by a stride between   
+          threads. Check the Source Counters section for uncoalesced global loads.                                      
+
+    Section: Scheduler Statistics
+    ---------------------------- ----------- ------------
+    Metric Name                  Metric Unit Metric Value
+    ---------------------------- ----------- ------------
+    One or More Eligible                   %        70.15
+    Issued Warp Per Scheduler                        0.70
+    No Eligible                            %        29.85
+    Active Warps Per Scheduler          warp         7.48
+    Eligible Warps Per Scheduler        warp         1.43
+    ---------------------------- ----------- ------------
+
+    Section: Warp State Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Warp Cycles Per Issued Instruction             cycle        10.67
+    Warp Cycles Per Executed Instruction           cycle        10.96
+    Avg. Active Threads Per Warp                                18.78
+    Avg. Not Predicated Off Threads Per Warp                    17.30
+    ---------------------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 32.16%                                                                                          
+          Instructions are executed in warps, which are groups of 32 threads. Optimal instruction throughput is         
+          achieved if all 32 threads of a warp execute the same instruction. The chosen launch configuration, early     
+          thread completion, and divergent flow control can significantly lower the number of active threads in a warp  
+          per cycle. This workload achieves an average of 18.8 threads being active per cycle. This is further reduced  
+          to 17.3 threads per warp due to predication. The compiler may use predication to avoid an actual branch.      
+          Instead, all instructions are scheduled, but a per-thread condition code or predicate controls which threads  
+          execute the instructions. Try to avoid different execution paths within a warp when possible.                 
+
+    Section: Instruction Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Avg. Executed Instructions Per Scheduler        inst   807,512.58
+    Executed Instructions                           inst   96,901,510
+    Avg. Issued Instructions Per Scheduler          inst   829,488.58
+    Issued Instructions                             inst   99,538,630
+    ---------------------------------------- ----------- ------------
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   256
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                  9,216
+    Registers Per Thread             register/thread              16
+    Shared Memory Configuration Size           Kbyte           32.77
+    Driver Shared Memory Per Block        byte/block               0
+    Dynamic Shared Memory Per Block       byte/block               0
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM              30
+    Stack Size                                                 1,024
+    Threads                                   thread       2,359,296
+    # TPCs                                                        15
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                               76.80
+    -------------------------------- --------------- ---------------
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           16
+    Block Limit Registers                 block           16
+    Block Limit Shared Mem                block           16
+    Block Limit Warps                     block            4
+    Theoretical Active Warps per SM        warp           32
+    Theoretical Occupancy                     %          100
+    Achieved Occupancy                        %        93.66
+    Achieved Active Warps Per SM           warp        29.97
+    ------------------------------- ----------- ------------
+
+    Section: GPU and Memory Workload Distribution
+    -------------------------- ----------- ------------
+    Metric Name                Metric Unit Metric Value
+    -------------------------- ----------- ------------
+    Average DRAM Active Cycles       cycle      259,834
+    Total DRAM Elapsed Cycles        cycle   36,341,760
+    Average L1 Active Cycles         cycle 1,182,861.70
+    Total L1 Elapsed Cycles          cycle   35,556,120
+    Average L2 Active Cycles         cycle 1,114,915.58
+    Total L2 Elapsed Cycles          cycle   26,847,744
+    Average SM Active Cycles         cycle 1,182,861.70
+    Total SM Elapsed Cycles          cycle   35,556,120
+    Average SMSP Active Cycles       cycle 1,182,424.53
+    Total SMSP Elapsed Cycles        cycle  142,224,480
+    -------------------------- ----------- ------------
+
+    Section: Source Counters
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Branch Instructions Ratio           %         0.33
+    Branch Instructions              inst   32,257,421
+    Branch Efficiency                   %        61.80
+    Avg. Divergent Branches                  57,604.16
+    ------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 71.9%                                                                                           
+          This kernel has uncoalesced global accesses resulting in a total of 8230348 excessive sectors (72% of the     
+          total 11409444 sectors). Check the L2 Theoretical Sectors Global Excessive table for the primary source       
+          locations. The CUDA Programming Guide                                                                         
+          (https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#device-memory-accesses) has additional      
+          information on reducing uncoalesced device memory accesses.                                                   
+
+  count_kmers_kernel(const char *, int, int, unsigned int *, int) (1024, 8, 1)x(256, 1, 1), Context 1, Stream 7, Device 0, CC 7.5
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz         6.98
+    SM Frequency                    Ghz         1.37
+    Elapsed Cycles                cycle    1,058,435
+    Memory Throughput                 %        29.77
+    DRAM Throughput                   %         3.58
+    Duration                         us       771.52
+    L1/TEX Cache Throughput           %        44.81
+    L2 Cache Throughput               %        29.77
+    SM Active Cycles              cycle 1,050,592.23
+    Compute (SM) Throughput           %        69.95
+    ----------------------- ----------- ------------
+
+    OPT   Compute is more heavily utilized than Memory: Look at the Compute Workload Analysis section to see what the   
+          compute pipelines are spending their time doing. Also, consider whether any computation is redundant and      
+          could be reduced or moved to look-up tables.                                                                  
+
+    Section: GPU Speed Of Light Roofline Chart
+    INF   The ratio of peak float (fp32) to double (fp64) performance on this device is 32:1. The workload achieved 0%  
+          of this device's fp32 peak performance and 0% of its fp64 peak performance. See the Kernel Profiling Guide    
+          (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#roofline) for more details on roofline      
+          analysis.                                                                                                     
+
+    Section: PM Sampling
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Maximum Buffer Size             Kbyte       786.43
+    Dropped Samples                sample            0
+    Maximum Sampling Interval       cycle       20,000
+    # Pass Groups                                    1
+    ------------------------- ----------- ------------
+
+    Section: Compute Workload Analysis
+    -------------------- ----------- ------------
+    Metric Name          Metric Unit Metric Value
+    -------------------- ----------- ------------
+    Executed Ipc Active   inst/cycle         2.73
+    Executed Ipc Elapsed  inst/cycle         2.72
+    Issue Slots Busy               %        70.21
+    Issued Ipc Active     inst/cycle         2.81
+    SM Busy                        %        70.21
+    -------------------- ----------- ------------
+
+    INF   ALU is the highest-utilized pipeline (42.9%) based on active cycles, taking into account the rates of its     
+          different instructions. It executes integer and logic operations. It is well-utilized, but should not be a    
+          bottleneck.                                                                                                   
+
+    Section: Memory Workload Analysis
+    ----------------- ----------- ------------
+    Metric Name       Metric Unit Metric Value
+    ----------------- ----------- ------------
+    Memory Throughput     Gbyte/s        11.98
+    Mem Busy                    %        29.14
+    Max Bandwidth               %        29.77
+    L1/TEX Hit Rate             %        31.53
+    L2 Hit Rate                 %        97.81
+    Mem Pipes Busy              %        19.92
+    ----------------- ----------- ------------
+
+    Section: Memory Workload Analysis Tables
+    OPT   Est. Speedup: 22.27%                                                                                          
+          The memory access pattern for global loads from L1TEX might not be optimal. On average, only 16.1 of the 32   
+          bytes transmitted per sector are utilized by each thread. This could possibly be caused by a stride between   
+          threads. Check the Source Counters section for uncoalesced global loads.                                      
+
+    Section: Scheduler Statistics
+    ---------------------------- ----------- ------------
+    Metric Name                  Metric Unit Metric Value
+    ---------------------------- ----------- ------------
+    One or More Eligible                   %        70.24
+    Issued Warp Per Scheduler                        0.70
+    No Eligible                            %        29.76
+    Active Warps Per Scheduler          warp         7.49
+    Eligible Warps Per Scheduler        warp         1.44
+    ---------------------------- ----------- ------------
+
+    Section: Warp State Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Warp Cycles Per Issued Instruction             cycle        10.66
+    Warp Cycles Per Executed Instruction           cycle        10.95
+    Avg. Active Threads Per Warp                                18.79
+    Avg. Not Predicated Off Threads Per Warp                    17.30
+    ---------------------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 32.14%                                                                                          
+          Instructions are executed in warps, which are groups of 32 threads. Optimal instruction throughput is         
+          achieved if all 32 threads of a warp execute the same instruction. The chosen launch configuration, early     
+          thread completion, and divergent flow control can significantly lower the number of active threads in a warp  
+          per cycle. This workload achieves an average of 18.8 threads being active per cycle. This is further reduced  
+          to 17.3 threads per warp due to predication. The compiler may use predication to avoid an actual branch.      
+          Instead, all instructions are scheduled, but a per-thread condition code or predicate controls which threads  
+          execute the instructions. Try to avoid different execution paths within a warp when possible.                 
+
+    Section: Instruction Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Avg. Executed Instructions Per Scheduler        inst   718,109.18
+    Executed Instructions                           inst   86,173,101
+    Avg. Issued Instructions Per Scheduler          inst   737,658.98
+    Issued Instructions                             inst   88,519,078
+    ---------------------------------------- ----------- ------------
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   256
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                  8,192
+    Registers Per Thread             register/thread              16
+    Shared Memory Configuration Size           Kbyte           32.77
+    Driver Shared Memory Per Block        byte/block               0
+    Dynamic Shared Memory Per Block       byte/block               0
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM              30
+    Stack Size                                                 1,024
+    Threads                                   thread       2,097,152
+    # TPCs                                                        15
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                               68.27
+    -------------------------------- --------------- ---------------
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           16
+    Block Limit Registers                 block           16
+    Block Limit Shared Mem                block           16
+    Block Limit Warps                     block            4
+    Theoretical Active Warps per SM        warp           32
+    Theoretical Occupancy                     %          100
+    Achieved Occupancy                        %        93.71
+    Achieved Active Warps Per SM           warp        29.99
+    ------------------------------- ----------- ------------
+
+    Section: GPU and Memory Workload Distribution
+    -------------------------- ----------- ------------
+    Metric Name                Metric Unit Metric Value
+    -------------------------- ----------- ------------
+    Average DRAM Active Cycles       cycle   192,633.33
+    Total DRAM Elapsed Cycles        cycle   32,316,416
+    Average L1 Active Cycles         cycle 1,050,592.23
+    Total L1 Elapsed Cycles          cycle   31,636,670
+    Average L2 Active Cycles         cycle   989,169.29
+    Total L2 Elapsed Cycles          cycle   23,896,656
+    Average SM Active Cycles         cycle 1,050,592.23
+    Total SM Elapsed Cycles          cycle   31,636,670
+    Average SMSP Active Cycles       cycle 1,050,149.74
+    Total SMSP Elapsed Cycles        cycle  126,546,680
+    -------------------------- ----------- ------------
+
+    Section: Source Counters
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Branch Instructions Ratio           %         0.33
+    Branch Instructions              inst   28,686,729
+    Branch Efficiency                   %        61.80
+    Avg. Divergent Branches                  51,231.01
+    ------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 71.67%                                                                                          
+          This kernel has uncoalesced global accesses resulting in a total of 7320477 excessive sectors (72% of the     
+          total 10147744 sectors). Check the L2 Theoretical Sectors Global Excessive table for the primary source       
+          locations. The CUDA Programming Guide                                                                         
+          (https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#device-memory-accesses) has additional      
+          information on reducing uncoalesced device memory accesses.                                                   
+
+  count_kmers_kernel(const char *, int, int, unsigned int *, int) (1024, 7, 1)x(256, 1, 1), Context 1, Stream 7, Device 0, CC 7.5
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz         7.00
+    SM Frequency                    Ghz         1.37
+    Elapsed Cycles                cycle      926,357
+    Memory Throughput                 %        29.73
+    DRAM Throughput                   %         3.63
+    Duration                         us       676.03
+    L1/TEX Cache Throughput           %        44.83
+    L2 Cache Throughput               %        29.73
+    SM Active Cycles              cycle   921,034.40
+    Compute (SM) Throughput           %        69.99
+    ----------------------- ----------- ------------
+
+    OPT   Compute is more heavily utilized than Memory: Look at the Compute Workload Analysis section to see what the   
+          compute pipelines are spending their time doing. Also, consider whether any computation is redundant and      
+          could be reduced or moved to look-up tables.                                                                  
+
+    Section: GPU Speed Of Light Roofline Chart
+    INF   The ratio of peak float (fp32) to double (fp64) performance on this device is 32:1. The workload achieved 0%  
+          of this device's fp32 peak performance and 0% of its fp64 peak performance. See the Kernel Profiling Guide    
+          (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#roofline) for more details on roofline      
+          analysis.                                                                                                     
+
+    Section: PM Sampling
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Maximum Buffer Size             Kbyte       393.22
+    Dropped Samples                sample            0
+    Maximum Sampling Interval       cycle       20,000
+    # Pass Groups                                    1
+    ------------------------- ----------- ------------
+
+    Section: Compute Workload Analysis
+    -------------------- ----------- ------------
+    Metric Name          Metric Unit Metric Value
+    -------------------- ----------- ------------
+    Executed Ipc Active   inst/cycle         2.73
+    Executed Ipc Elapsed  inst/cycle         2.73
+    Issue Slots Busy               %        70.11
+    Issued Ipc Active     inst/cycle         2.80
+    SM Busy                        %        70.11
+    -------------------- ----------- ------------
+
+    INF   ALU is the highest-utilized pipeline (42.9%) based on active cycles, taking into account the rates of its     
+          different instructions. It executes integer and logic operations. It is well-utilized, but should not be a    
+          bottleneck.                                                                                                   
+
+    Section: Memory Workload Analysis
+    ----------------- ----------- ------------
+    Metric Name       Metric Unit Metric Value
+    ----------------- ----------- ------------
+    Memory Throughput     Gbyte/s        12.19
+    Mem Busy                    %        29.11
+    Max Bandwidth               %        29.73
+    L1/TEX Hit Rate             %        31.53
+    L2 Hit Rate                 %        97.84
+    Mem Pipes Busy              %        19.93
+    ----------------- ----------- ------------
+
+    Section: Memory Workload Analysis Tables
+    OPT   Est. Speedup: 22.28%                                                                                          
+          The memory access pattern for global loads from L1TEX might not be optimal. On average, only 16.1 of the 32   
+          bytes transmitted per sector are utilized by each thread. This could possibly be caused by a stride between   
+          threads. Check the Source Counters section for uncoalesced global loads.                                      
+
+    Section: Scheduler Statistics
+    ---------------------------- ----------- ------------
+    Metric Name                  Metric Unit Metric Value
+    ---------------------------- ----------- ------------
+    One or More Eligible                   %        70.18
+    Issued Warp Per Scheduler                        0.70
+    No Eligible                            %        29.82
+    Active Warps Per Scheduler          warp         7.49
+    Eligible Warps Per Scheduler        warp         1.44
+    ---------------------------- ----------- ------------
+
+    Section: Warp State Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Warp Cycles Per Issued Instruction             cycle        10.67
+    Warp Cycles Per Executed Instruction           cycle        10.96
+    Avg. Active Threads Per Warp                                18.78
+    Avg. Not Predicated Off Threads Per Warp                    17.30
+    ---------------------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 32.16%                                                                                          
+          Instructions are executed in warps, which are groups of 32 threads. Optimal instruction throughput is         
+          achieved if all 32 threads of a warp execute the same instruction. The chosen launch configuration, early     
+          thread completion, and divergent flow control can significantly lower the number of active threads in a warp  
+          per cycle. This workload achieves an average of 18.8 threads being active per cycle. This is further reduced  
+          to 17.3 threads per warp due to predication. The compiler may use predication to avoid an actual branch.      
+          Instead, all instructions are scheduled, but a per-thread condition code or predicate controls which threads  
+          execute the instructions. Try to avoid different execution paths within a warp when possible.                 
+
+    Section: Instruction Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Avg. Executed Instructions Per Scheduler        inst   628,612.43
+    Executed Instructions                           inst   75,433,492
+    Avg. Issued Instructions Per Scheduler          inst   645,735.97
+    Issued Instructions                             inst   77,488,317
+    ---------------------------------------- ----------- ------------
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   256
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                  7,168
+    Registers Per Thread             register/thread              16
+    Shared Memory Configuration Size           Kbyte           32.77
+    Driver Shared Memory Per Block        byte/block               0
+    Dynamic Shared Memory Per Block       byte/block               0
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM              30
+    Stack Size                                                 1,024
+    Threads                                   thread       1,835,008
+    # TPCs                                                        15
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                               59.73
+    -------------------------------- --------------- ---------------
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           16
+    Block Limit Registers                 block           16
+    Block Limit Shared Mem                block           16
+    Block Limit Warps                     block            4
+    Theoretical Active Warps per SM        warp           32
+    Theoretical Occupancy                     %          100
+    Achieved Occupancy                        %        93.63
+    Achieved Active Warps Per SM           warp        29.96
+    ------------------------------- ----------- ------------
+
+    Section: GPU and Memory Workload Distribution
+    -------------------------- ----------- ------------
+    Metric Name                Metric Unit Metric Value
+    -------------------------- ----------- ------------
+    Average DRAM Active Cycles       cycle   171,668.67
+    Total DRAM Elapsed Cycles        cycle   28,385,280
+    Average L1 Active Cycles         cycle   921,034.40
+    Total L1 Elapsed Cycles          cycle   27,678,840
+    Average L2 Active Cycles         cycle   867,397.71
+    Total L2 Elapsed Cycles          cycle   20,938,032
+    Average SM Active Cycles         cycle   921,034.40
+    Total SM Elapsed Cycles          cycle   27,678,840
+    Average SMSP Active Cycles       cycle   920,172.52
+    Total SMSP Elapsed Cycles        cycle  110,715,360
+    -------------------------- ----------- ------------
+
+    Section: Source Counters
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Branch Instructions Ratio           %         0.33
+    Branch Instructions              inst   25,112,025
+    Branch Efficiency                   %        61.79
+    Avg. Divergent Branches                  44,851.38
+    ------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 71.72%                                                                                          
+          This kernel has uncoalesced global accesses resulting in a total of 6407783 excessive sectors (72% of the     
+          total 8882639 sectors). Check the L2 Theoretical Sectors Global Excessive table for the primary source        
+          locations. The CUDA Programming Guide                                                                         
+          (https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#device-memory-accesses) has additional      
+          information on reducing uncoalesced device memory accesses.                                                   
+
+  count_kmers_kernel(const char *, int, int, unsigned int *, int) (1024, 6, 1)x(256, 1, 1), Context 1, Stream 7, Device 0, CC 7.5
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz         6.98
+    SM Frequency                    Ghz         1.37
+    Elapsed Cycles                cycle      794,826
+    Memory Throughput                 %        29.66
+    DRAM Throughput                   %         3.72
+    Duration                         us       580.19
+    L1/TEX Cache Throughput           %        44.61
+    L2 Cache Throughput               %        29.66
+    SM Active Cycles              cycle   789,131.77
+    Compute (SM) Throughput           %        69.73
+    ----------------------- ----------- ------------
+
+    OPT   Compute is more heavily utilized than Memory: Look at the Compute Workload Analysis section to see what the   
+          compute pipelines are spending their time doing. Also, consider whether any computation is redundant and      
+          could be reduced or moved to look-up tables.                                                                  
+
+    Section: GPU Speed Of Light Roofline Chart
+    INF   The ratio of peak float (fp32) to double (fp64) performance on this device is 32:1. The workload achieved 0%  
+          of this device's fp32 peak performance and 0% of its fp64 peak performance. See the Kernel Profiling Guide    
+          (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#roofline) for more details on roofline      
+          analysis.                                                                                                     
+
+    Section: PM Sampling
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Maximum Buffer Size             Kbyte       393.22
+    Dropped Samples                sample            0
+    Maximum Sampling Interval       cycle       20,000
+    # Pass Groups                                    1
+    ------------------------- ----------- ------------
+
+    Section: Compute Workload Analysis
+    -------------------- ----------- ------------
+    Metric Name          Metric Unit Metric Value
+    -------------------- ----------- ------------
+    Executed Ipc Active   inst/cycle         2.73
+    Executed Ipc Elapsed  inst/cycle         2.72
+    Issue Slots Busy               %        70.09
+    Issued Ipc Active     inst/cycle         2.80
+    SM Busy                        %        70.09
+    -------------------- ----------- ------------
+
+    INF   ALU is the highest-utilized pipeline (42.9%) based on active cycles, taking into account the rates of its     
+          different instructions. It executes integer and logic operations. It is well-utilized, but should not be a    
+          bottleneck.                                                                                                   
+
+    Section: Memory Workload Analysis
+    ----------------- ----------- ------------
+    Metric Name       Metric Unit Metric Value
+    ----------------- ----------- ------------
+    Memory Throughput     Gbyte/s        12.47
+    Mem Busy                    %        29.04
+    Max Bandwidth               %        29.66
+    L1/TEX Hit Rate             %        31.54
+    L2 Hit Rate                 %        97.80
+    Mem Pipes Busy              %        19.85
+    ----------------- ----------- ------------
+
+    Section: Memory Workload Analysis Tables
+    OPT   Est. Speedup: 22.18%                                                                                          
+          The memory access pattern for global loads from L1TEX might not be optimal. On average, only 16.1 of the 32   
+          bytes transmitted per sector are utilized by each thread. This could possibly be caused by a stride between   
+          threads. Check the Source Counters section for uncoalesced global loads.                                      
+
+    Section: Scheduler Statistics
+    ---------------------------- ----------- ------------
+    Metric Name                  Metric Unit Metric Value
+    ---------------------------- ----------- ------------
+    One or More Eligible                   %        70.20
+    Issued Warp Per Scheduler                        0.70
+    No Eligible                            %        29.80
+    Active Warps Per Scheduler          warp         7.48
+    Eligible Warps Per Scheduler        warp         1.44
+    ---------------------------- ----------- ------------
+
+    Section: Warp State Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Warp Cycles Per Issued Instruction             cycle        10.66
+    Warp Cycles Per Executed Instruction           cycle        10.95
+    Avg. Active Threads Per Warp                                18.77
+    Avg. Not Predicated Off Threads Per Warp                    17.28
+    ---------------------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 32.07%                                                                                          
+          Instructions are executed in warps, which are groups of 32 threads. Optimal instruction throughput is         
+          achieved if all 32 threads of a warp execute the same instruction. The chosen launch configuration, early     
+          thread completion, and divergent flow control can significantly lower the number of active threads in a warp  
+          per cycle. This workload achieves an average of 18.8 threads being active per cycle. This is further reduced  
+          to 17.3 threads per warp due to predication. The compiler may use predication to avoid an actual branch.      
+          Instead, all instructions are scheduled, but a per-thread condition code or predicate controls which threads  
+          execute the instructions. Try to avoid different execution paths within a warp when possible.                 
+
+    Section: Instruction Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Avg. Executed Instructions Per Scheduler        inst   538,453.03
+    Executed Instructions                           inst   64,614,363
+    Avg. Issued Instructions Per Scheduler          inst   553,141.61
+    Issued Instructions                             inst   66,376,993
+    ---------------------------------------- ----------- ------------
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   256
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                  6,144
+    Registers Per Thread             register/thread              16
+    Shared Memory Configuration Size           Kbyte           32.77
+    Driver Shared Memory Per Block        byte/block               0
+    Dynamic Shared Memory Per Block       byte/block               0
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM              30
+    Stack Size                                                 1,024
+    Threads                                   thread       1,572,864
+    # TPCs                                                        15
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                               51.20
+    -------------------------------- --------------- ---------------
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           16
+    Block Limit Registers                 block           16
+    Block Limit Shared Mem                block           16
+    Block Limit Warps                     block            4
+    Theoretical Active Warps per SM        warp           32
+    Theoretical Occupancy                     %          100
+    Achieved Occupancy                        %        93.57
+    Achieved Active Warps Per SM           warp        29.94
+    ------------------------------- ----------- ------------
+
+    Section: GPU and Memory Workload Distribution
+    -------------------------- ----------- ------------
+    Metric Name                Metric Unit Metric Value
+    -------------------------- ----------- ------------
+    Average DRAM Active Cycles       cycle   150,682.67
+    Total DRAM Elapsed Cycles        cycle   24,306,688
+    Average L1 Active Cycles         cycle   789,131.77
+    Total L1 Elapsed Cycles          cycle   23,796,950
+    Average L2 Active Cycles         cycle   741,587.33
+    Total L2 Elapsed Cycles          cycle   17,963,808
+    Average SM Active Cycles         cycle   789,131.77
+    Total SM Elapsed Cycles          cycle   23,796,950
+    Average SMSP Active Cycles       cycle   787,986.41
+    Total SMSP Elapsed Cycles        cycle   95,187,800
+    -------------------------- ----------- ------------
+
+    Section: Source Counters
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Branch Instructions Ratio           %         0.33
+    Branch Instructions              inst   21,510,036
+    Branch Efficiency                   %        61.78
+    Avg. Divergent Branches                  38,424.59
+    ------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 71.45%                                                                                          
+          This kernel has uncoalesced global accesses resulting in a total of 5481367 excessive sectors (72% of the     
+          total 7600744 sectors). Check the L2 Theoretical Sectors Global Excessive table for the primary source        
+          locations. The CUDA Programming Guide                                                                         
+          (https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#device-memory-accesses) has additional      
+          information on reducing uncoalesced device memory accesses.                                                   
+
+  count_kmers_kernel(const char *, int, int, unsigned int *, int) (1024, 5, 1)x(256, 1, 1), Context 1, Stream 7, Device 0, CC 7.5
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz         6.98
+    SM Frequency                    Ghz         1.37
+    Elapsed Cycles                cycle      663,519
+    Memory Throughput                 %        29.55
+    DRAM Throughput                   %         3.85
+    Duration                         us       484.26
+    L1/TEX Cache Throughput           %        44.50
+    L2 Cache Throughput               %        29.55
+    SM Active Cycles              cycle   657,664.37
+    Compute (SM) Throughput           %        69.63
+    ----------------------- ----------- ------------
+
+    OPT   Compute is more heavily utilized than Memory: Look at the Compute Workload Analysis section to see what the   
+          compute pipelines are spending their time doing. Also, consider whether any computation is redundant and      
+          could be reduced or moved to look-up tables.                                                                  
+
+    Section: GPU Speed Of Light Roofline Chart
+    INF   The ratio of peak float (fp32) to double (fp64) performance on this device is 32:1. The workload achieved 0%  
+          of this device's fp32 peak performance and 0% of its fp64 peak performance. See the Kernel Profiling Guide    
+          (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#roofline) for more details on roofline      
+          analysis.                                                                                                     
+
+    Section: PM Sampling
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Maximum Buffer Size             Kbyte       393.22
+    Dropped Samples                sample            0
+    Maximum Sampling Interval       cycle       20,000
+    # Pass Groups                                    1
+    ------------------------- ----------- ------------
+
+    Section: Compute Workload Analysis
+    -------------------- ----------- ------------
+    Metric Name          Metric Unit Metric Value
+    -------------------- ----------- ------------
+    Executed Ipc Active   inst/cycle         2.73
+    Executed Ipc Elapsed  inst/cycle         2.71
+    Issue Slots Busy               %        70.01
+    Issued Ipc Active     inst/cycle         2.80
+    SM Busy                        %        70.01
+    -------------------- ----------- ------------
+
+    INF   ALU is the highest-utilized pipeline (42.8%) based on active cycles, taking into account the rates of its     
+          different instructions. It executes integer and logic operations. It is well-utilized, but should not be a    
+          bottleneck.                                                                                                   
+
+    Section: Memory Workload Analysis
+    ----------------- ----------- ------------
+    Metric Name       Metric Unit Metric Value
+    ----------------- ----------- ------------
+    Memory Throughput     Gbyte/s        12.91
+    Mem Busy                    %        28.94
+    Max Bandwidth               %        29.55
+    L1/TEX Hit Rate             %        31.55
+    L2 Hit Rate                 %        97.79
+    Mem Pipes Busy              %        19.81
+    ----------------- ----------- ------------
+
+    Section: Memory Workload Analysis Tables
+    OPT   Est. Speedup: 22.13%                                                                                          
+          The memory access pattern for global loads from L1TEX might not be optimal. On average, only 16.1 of the 32   
+          bytes transmitted per sector are utilized by each thread. This could possibly be caused by a stride between   
+          threads. Check the Source Counters section for uncoalesced global loads.                                      
+
+    Section: Scheduler Statistics
+    ---------------------------- ----------- ------------
+    Metric Name                  Metric Unit Metric Value
+    ---------------------------- ----------- ------------
+    One or More Eligible                   %        70.04
+    Issued Warp Per Scheduler                        0.70
+    No Eligible                            %        29.96
+    Active Warps Per Scheduler          warp         7.46
+    Eligible Warps Per Scheduler        warp         1.43
+    ---------------------------- ----------- ------------
+
+    Section: Warp State Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Warp Cycles Per Issued Instruction             cycle        10.65
+    Warp Cycles Per Executed Instruction           cycle        10.94
+    Avg. Active Threads Per Warp                                18.76
+    Avg. Not Predicated Off Threads Per Warp                    17.27
+    ---------------------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 32.04%                                                                                          
+          Instructions are executed in warps, which are groups of 32 threads. Optimal instruction throughput is         
+          achieved if all 32 threads of a warp execute the same instruction. The chosen launch configuration, early     
+          thread completion, and divergent flow control can significantly lower the number of active threads in a warp  
+          per cycle. This workload achieves an average of 18.8 threads being active per cycle. This is further reduced  
+          to 17.3 threads per warp due to predication. The compiler may use predication to avoid an actual branch.      
+          Instead, all instructions are scheduled, but a per-thread condition code or predicate controls which threads  
+          execute the instructions. Try to avoid different execution paths within a warp when possible.                 
+
+    Section: Instruction Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Avg. Executed Instructions Per Scheduler        inst   448,168.83
+    Executed Instructions                           inst   53,780,259
+    Avg. Issued Instructions Per Scheduler          inst   460,413.58
+    Issued Instructions                             inst   55,249,630
+    ---------------------------------------- ----------- ------------
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   256
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                  5,120
+    Registers Per Thread             register/thread              16
+    Shared Memory Configuration Size           Kbyte           32.77
+    Driver Shared Memory Per Block        byte/block               0
+    Dynamic Shared Memory Per Block       byte/block               0
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM              30
+    Stack Size                                                 1,024
+    Threads                                   thread       1,310,720
+    # TPCs                                                        15
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                               42.67
+    -------------------------------- --------------- ---------------
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           16
+    Block Limit Registers                 block           16
+    Block Limit Shared Mem                block           16
+    Block Limit Warps                     block            4
+    Theoretical Active Warps per SM        warp           32
+    Theoretical Occupancy                     %          100
+    Achieved Occupancy                        %        93.37
+    Achieved Active Warps Per SM           warp        29.88
+    ------------------------------- ----------- ------------
+
+    Section: GPU and Memory Workload Distribution
+    -------------------------- ----------- ------------
+    Metric Name                Metric Unit Metric Value
+    -------------------------- ----------- ------------
+    Average DRAM Active Cycles       cycle   130,290.67
+    Total DRAM Elapsed Cycles        cycle   20,288,512
+    Average L1 Active Cycles         cycle   657,664.37
+    Total L1 Elapsed Cycles          cycle   19,837,400
+    Average L2 Active Cycles         cycle   618,128.88
+    Total L2 Elapsed Cycles          cycle   14,990,064
+    Average SM Active Cycles         cycle   657,664.37
+    Total SM Elapsed Cycles          cycle   19,837,400
+    Average SMSP Active Cycles       cycle   657,350.77
+    Total SMSP Elapsed Cycles        cycle   79,349,600
+    -------------------------- ----------- ------------
+
+    Section: Source Counters
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Branch Instructions Ratio           %         0.33
+    Branch Instructions              inst   17,902,855
+    Branch Efficiency                   %        61.78
+    Avg. Divergent Branches                  31,984.08
+    ------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 71.35%                                                                                          
+          This kernel has uncoalesced global accesses resulting in a total of 4556993 excessive sectors (72% of the     
+          total 6320626 sectors). Check the L2 Theoretical Sectors Global Excessive table for the primary source        
+          locations. The CUDA Programming Guide                                                                         
+          (https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#device-memory-accesses) has additional      
+          information on reducing uncoalesced device memory accesses.                                                   
+
+  count_kmers_kernel(const char *, int, int, unsigned int *, int) (1024, 4, 1)x(256, 1, 1), Context 1, Stream 7, Device 0, CC 7.5
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz         7.00
+    SM Frequency                    Ghz         1.37
+    Elapsed Cycles                cycle      532,009
+    Memory Throughput                 %        29.59
+    DRAM Throughput                   %         4.05
+    Duration                         us       388.48
+    L1/TEX Cache Throughput           %        44.39
+    L2 Cache Throughput               %        29.59
+    SM Active Cycles              cycle   525,517.77
+    Compute (SM) Throughput           %        69.38
+    ----------------------- ----------- ------------
+
+    OPT   Compute is more heavily utilized than Memory: Look at the Compute Workload Analysis section to see what the   
+          compute pipelines are spending their time doing. Also, consider whether any computation is redundant and      
+          could be reduced or moved to look-up tables.                                                                  
+
+    Section: GPU Speed Of Light Roofline Chart
+    INF   The ratio of peak float (fp32) to double (fp64) performance on this device is 32:1. The workload achieved 0%  
+          of this device's fp32 peak performance and 0% of its fp64 peak performance. See the Kernel Profiling Guide    
+          (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#roofline) for more details on roofline      
+          analysis.                                                                                                     
+
+    Section: PM Sampling
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Maximum Buffer Size             Kbyte       393.22
+    Dropped Samples                sample            0
+    Maximum Sampling Interval       cycle       20,000
+    # Pass Groups                                    1
+    ------------------------- ----------- ------------
+
+    Section: Compute Workload Analysis
+    -------------------- ----------- ------------
+    Metric Name          Metric Unit Metric Value
+    -------------------- ----------- ------------
+    Executed Ipc Active   inst/cycle         2.73
+    Executed Ipc Elapsed  inst/cycle         2.70
+    Issue Slots Busy               %        70.13
+    Issued Ipc Active     inst/cycle         2.81
+    SM Busy                        %        70.13
+    -------------------- ----------- ------------
+
+    INF   ALU is the highest-utilized pipeline (42.9%) based on active cycles, taking into account the rates of its     
+          different instructions. It executes integer and logic operations. It is well-utilized, but should not be a    
+          bottleneck.                                                                                                   
+
+    Section: Memory Workload Analysis
+    ----------------- ----------- ------------
+    Metric Name       Metric Unit Metric Value
+    ----------------- ----------- ------------
+    Memory Throughput     Gbyte/s        13.60
+    Mem Busy                    %        28.96
+    Max Bandwidth               %        29.59
+    L1/TEX Hit Rate             %        31.54
+    L2 Hit Rate                 %        97.73
+    Mem Pipes Busy              %        19.75
+    ----------------- ----------- ------------
+
+    Section: Memory Workload Analysis Tables
+    OPT   Est. Speedup: 22.07%                                                                                          
+          The memory access pattern for global loads from L1TEX might not be optimal. On average, only 16.1 of the 32   
+          bytes transmitted per sector are utilized by each thread. This could possibly be caused by a stride between   
+          threads. Check the Source Counters section for uncoalesced global loads.                                      
+
+    Section: Scheduler Statistics
+    ---------------------------- ----------- ------------
+    Metric Name                  Metric Unit Metric Value
+    ---------------------------- ----------- ------------
+    One or More Eligible                   %        70.09
+    Issued Warp Per Scheduler                        0.70
+    No Eligible                            %        29.91
+    Active Warps Per Scheduler          warp         7.47
+    Eligible Warps Per Scheduler        warp         1.43
+    ---------------------------- ----------- ------------
+
+    Section: Warp State Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Warp Cycles Per Issued Instruction             cycle        10.66
+    Warp Cycles Per Executed Instruction           cycle        10.95
+    Avg. Active Threads Per Warp                                18.77
+    Avg. Not Predicated Off Threads Per Warp                    17.29
+    ---------------------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 31.9%                                                                                           
+          Instructions are executed in warps, which are groups of 32 threads. Optimal instruction throughput is         
+          achieved if all 32 threads of a warp execute the same instruction. The chosen launch configuration, early     
+          thread completion, and divergent flow control can significantly lower the number of active threads in a warp  
+          per cycle. This workload achieves an average of 18.8 threads being active per cycle. This is further reduced  
+          to 17.3 threads per warp due to predication. The compiler may use predication to avoid an actual branch.      
+          Instead, all instructions are scheduled, but a per-thread condition code or predicate controls which threads  
+          execute the instructions. Try to avoid different execution paths within a warp when possible.                 
+
+    Section: Instruction Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Avg. Executed Instructions Per Scheduler        inst   358,724.11
+    Executed Instructions                           inst   43,046,893
+    Avg. Issued Instructions Per Scheduler          inst      368,526
+    Issued Instructions                             inst   44,223,120
+    ---------------------------------------- ----------- ------------
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   256
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                  4,096
+    Registers Per Thread             register/thread              16
+    Shared Memory Configuration Size           Kbyte           32.77
+    Driver Shared Memory Per Block        byte/block               0
+    Dynamic Shared Memory Per Block       byte/block               0
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM              30
+    Stack Size                                                 1,024
+    Threads                                   thread       1,048,576
+    # TPCs                                                        15
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                               34.13
+    -------------------------------- --------------- ---------------
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           16
+    Block Limit Registers                 block           16
+    Block Limit Shared Mem                block           16
+    Block Limit Warps                     block            4
+    Theoretical Active Warps per SM        warp           32
+    Theoretical Occupancy                     %          100
+    Achieved Occupancy                        %        93.51
+    Achieved Active Warps Per SM           warp        29.92
+    ------------------------------- ----------- ------------
+
+    Section: GPU and Memory Workload Distribution
+    -------------------------- ----------- ------------
+    Metric Name                Metric Unit Metric Value
+    -------------------------- ----------- ------------
+    Average DRAM Active Cycles       cycle   110,098.67
+    Total DRAM Elapsed Cycles        cycle   16,318,464
+    Average L1 Active Cycles         cycle   525,517.77
+    Total L1 Elapsed Cycles          cycle   15,934,940
+    Average L2 Active Cycles         cycle   495,030.54
+    Total L2 Elapsed Cycles          cycle   12,010,608
+    Average SM Active Cycles         cycle   525,517.77
+    Total SM Elapsed Cycles          cycle   15,934,940
+    Average SMSP Active Cycles       cycle   525,778.56
+    Total SMSP Elapsed Cycles        cycle   63,739,760
+    -------------------------- ----------- ------------
+
+    Section: Source Counters
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Branch Instructions Ratio           %         0.33
+    Branch Instructions              inst   14,330,073
+    Branch Efficiency                   %        61.78
+    Avg. Divergent Branches                  25,597.78
+    ------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 71.34%                                                                                          
+          This kernel has uncoalesced global accesses resulting in a total of 3651948 excessive sectors (72% of the     
+          total 5063943 sectors). Check the L2 Theoretical Sectors Global Excessive table for the primary source        
+          locations. The CUDA Programming Guide                                                                         
+          (https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#device-memory-accesses) has additional      
+          information on reducing uncoalesced device memory accesses.                                                   
+
+  count_kmers_kernel(const char *, int, int, unsigned int *, int) (1024, 3, 1)x(256, 1, 1), Context 1, Stream 7, Device 0, CC 7.5
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz         7.00
+    SM Frequency                    Ghz         1.35
+    Elapsed Cycles                cycle      400,697
+    Memory Throughput                 %        29.45
+    DRAM Throughput                   %         4.24
+    Duration                         us       296.06
+    L1/TEX Cache Throughput           %        44.31
+    L2 Cache Throughput               %        29.45
+    SM Active Cycles              cycle   394,891.73
+    Compute (SM) Throughput           %        69.29
+    ----------------------- ----------- ------------
+
+    OPT   Compute is more heavily utilized than Memory: Look at the Compute Workload Analysis section to see what the   
+          compute pipelines are spending their time doing. Also, consider whether any computation is redundant and      
+          could be reduced or moved to look-up tables.                                                                  
+
+    Section: GPU Speed Of Light Roofline Chart
+    INF   The ratio of peak float (fp32) to double (fp64) performance on this device is 32:1. The workload achieved 0%  
+          of this device's fp32 peak performance and 0% of its fp64 peak performance. See the Kernel Profiling Guide    
+          (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#roofline) for more details on roofline      
+          analysis.                                                                                                     
+
+    Section: PM Sampling
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Maximum Buffer Size             Kbyte       393.22
+    Dropped Samples                sample            0
+    Maximum Sampling Interval       cycle       20,000
+    # Pass Groups                                    1
+    ------------------------- ----------- ------------
+
+    Section: Compute Workload Analysis
+    -------------------- ----------- ------------
+    Metric Name          Metric Unit Metric Value
+    -------------------- ----------- ------------
+    Executed Ipc Active   inst/cycle         2.72
+    Executed Ipc Elapsed  inst/cycle         2.70
+    Issue Slots Busy               %        69.96
+    Issued Ipc Active     inst/cycle         2.80
+    SM Busy                        %        69.96
+    -------------------- ----------- ------------
+
+    INF   ALU is the highest-utilized pipeline (42.8%) based on active cycles, taking into account the rates of its     
+          different instructions. It executes integer and logic operations. It is well-utilized, but should not be a    
+          bottleneck.                                                                                                   
+
+    Section: Memory Workload Analysis
+    ----------------- ----------- ------------
+    Metric Name       Metric Unit Metric Value
+    ----------------- ----------- ------------
+    Memory Throughput     Gbyte/s        14.25
+    Mem Busy                    %        28.83
+    Max Bandwidth               %        29.45
+    L1/TEX Hit Rate             %        31.55
+    L2 Hit Rate                 %        97.79
+    Mem Pipes Busy              %        19.72
+    ----------------- ----------- ------------
+
+    Section: Memory Workload Analysis Tables
+    OPT   Est. Speedup: 22.03%                                                                                          
+          The memory access pattern for global loads from L1TEX might not be optimal. On average, only 16.1 of the 32   
+          bytes transmitted per sector are utilized by each thread. This could possibly be caused by a stride between   
+          threads. Check the Source Counters section for uncoalesced global loads.                                      
+
+    Section: Scheduler Statistics
+    ---------------------------- ----------- ------------
+    Metric Name                  Metric Unit Metric Value
+    ---------------------------- ----------- ------------
+    One or More Eligible                   %        69.91
+    Issued Warp Per Scheduler                        0.70
+    No Eligible                            %        30.09
+    Active Warps Per Scheduler          warp         7.44
+    Eligible Warps Per Scheduler        warp         1.43
+    ---------------------------- ----------- ------------
+
+    Section: Warp State Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Warp Cycles Per Issued Instruction             cycle        10.64
+    Warp Cycles Per Executed Instruction           cycle        10.93
+    Avg. Active Threads Per Warp                                18.77
+    Avg. Not Predicated Off Threads Per Warp                    17.28
+    ---------------------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 31.87%                                                                                          
+          Instructions are executed in warps, which are groups of 32 threads. Optimal instruction throughput is         
+          achieved if all 32 threads of a warp execute the same instruction. The chosen launch configuration, early     
+          thread completion, and divergent flow control can significantly lower the number of active threads in a warp  
+          per cycle. This workload achieves an average of 18.8 threads being active per cycle. This is further reduced  
+          to 17.3 threads per warp due to predication. The compiler may use predication to avoid an actual branch.      
+          Instead, all instructions are scheduled, but a per-thread condition code or predicate controls which threads  
+          execute the instructions. Try to avoid different execution paths within a warp when possible.                 
+
+    Section: Instruction Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Avg. Executed Instructions Per Scheduler        inst   268,897.64
+    Executed Instructions                           inst   32,267,717
+    Avg. Issued Instructions Per Scheduler          inst   276,258.88
+    Issued Instructions                             inst   33,151,065
+    ---------------------------------------- ----------- ------------
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   256
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                  3,072
+    Registers Per Thread             register/thread              16
+    Shared Memory Configuration Size           Kbyte           32.77
+    Driver Shared Memory Per Block        byte/block               0
+    Dynamic Shared Memory Per Block       byte/block               0
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM              30
+    Stack Size                                                 1,024
+    Threads                                   thread         786,432
+    # TPCs                                                        15
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                               25.60
+    -------------------------------- --------------- ---------------
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           16
+    Block Limit Registers                 block           16
+    Block Limit Shared Mem                block           16
+    Block Limit Warps                     block            4
+    Theoretical Active Warps per SM        warp           32
+    Theoretical Occupancy                     %          100
+    Achieved Occupancy                        %        93.41
+    Achieved Active Warps Per SM           warp        29.89
+    ------------------------------- ----------- ------------
+
+    Section: GPU and Memory Workload Distribution
+    -------------------------- ----------- ------------
+    Metric Name                Metric Unit Metric Value
+    -------------------------- ----------- ------------
+    Average DRAM Active Cycles       cycle       87,906
+    Total DRAM Elapsed Cycles        cycle   12,429,312
+    Average L1 Active Cycles         cycle   394,891.73
+    Total L1 Elapsed Cycles          cycle   11,960,170
+    Average L2 Active Cycles         cycle   373,176.79
+    Total L2 Elapsed Cycles          cycle    9,039,576
+    Average SM Active Cycles         cycle   394,891.73
+    Total SM Elapsed Cycles          cycle   11,960,170
+    Average SMSP Active Cycles       cycle   395,145.03
+    Total SMSP Elapsed Cycles        cycle   47,840,680
+    -------------------------- ----------- ------------
+
+    Section: Source Counters
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Branch Instructions Ratio           %         0.33
+    Branch Instructions              inst   10,741,733
+    Branch Efficiency                   %        61.79
+    Avg. Divergent Branches                  19,186.05
+    ------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 71.45%                                                                                          
+          This kernel has uncoalesced global accesses resulting in a total of 2737104 excessive sectors (72% of the     
+          total 3795420 sectors). Check the L2 Theoretical Sectors Global Excessive table for the primary source        
+          locations. The CUDA Programming Guide                                                                         
+          (https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#device-memory-accesses) has additional      
+          information on reducing uncoalesced device memory accesses.                                                   
+
+  count_kmers_kernel(const char *, int, int, unsigned int *, int) (1024, 2, 1)x(256, 1, 1), Context 1, Stream 7, Device 0, CC 7.5
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz         6.99
+    SM Frequency                    Ghz         1.35
+    Elapsed Cycles                cycle      270,222
+    Memory Throughput                 %        29.32
+    DRAM Throughput                   %         3.86
+    Duration                         us       200.10
+    L1/TEX Cache Throughput           %        44.09
+    L2 Cache Throughput               %        29.32
+    SM Active Cycles              cycle   265,507.43
+    Compute (SM) Throughput           %        68.76
+    ----------------------- ----------- ------------
+
+    OPT   Compute is more heavily utilized than Memory: Look at the Compute Workload Analysis section to see what the   
+          compute pipelines are spending their time doing. Also, consider whether any computation is redundant and      
+          could be reduced or moved to look-up tables.                                                                  
+
+    Section: GPU Speed Of Light Roofline Chart
+    INF   The ratio of peak float (fp32) to double (fp64) performance on this device is 32:1. The workload achieved 0%  
+          of this device's fp32 peak performance and 0% of its fp64 peak performance. See the Kernel Profiling Guide    
+          (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#roofline) for more details on roofline      
+          analysis.                                                                                                     
+
+    Section: PM Sampling
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Maximum Buffer Size             Kbyte       393.22
+    Dropped Samples                sample            0
+    Maximum Sampling Interval       cycle       20,000
+    # Pass Groups                                    1
+    ------------------------- ----------- ------------
+
+    Section: Compute Workload Analysis
+    -------------------- ----------- ------------
+    Metric Name          Metric Unit Metric Value
+    -------------------- ----------- ------------
+    Executed Ipc Active   inst/cycle         2.71
+    Executed Ipc Elapsed  inst/cycle         2.68
+    Issue Slots Busy               %        69.64
+    Issued Ipc Active     inst/cycle         2.79
+    SM Busy                        %        69.64
+    -------------------- ----------- ------------
+
+    INF   ALU is the highest-utilized pipeline (42.6%) based on active cycles, taking into account the rates of its     
+          different instructions. It executes integer and logic operations. It is well-utilized, but should not be a    
+          bottleneck.                                                                                                   
+
+    Section: Memory Workload Analysis
+    ----------------- ----------- ------------
+    Metric Name       Metric Unit Metric Value
+    ----------------- ----------- ------------
+    Memory Throughput     Gbyte/s        12.93
+    Mem Busy                    %        28.69
+    Max Bandwidth               %        29.32
+    L1/TEX Hit Rate             %        31.53
+    L2 Hit Rate                 %        97.75
+    Mem Pipes Busy              %        19.59
+    ----------------- ----------- ------------
+
+    Section: Memory Workload Analysis Tables
+    OPT   Est. Speedup: 21.91%                                                                                          
+          The memory access pattern for global loads from L1TEX might not be optimal. On average, only 16.1 of the 32   
+          bytes transmitted per sector are utilized by each thread. This could possibly be caused by a stride between   
+          threads. Check the Source Counters section for uncoalesced global loads.                                      
+
+    Section: Scheduler Statistics
+    ---------------------------- ----------- ------------
+    Metric Name                  Metric Unit Metric Value
+    ---------------------------- ----------- ------------
+    One or More Eligible                   %        69.78
+    Issued Warp Per Scheduler                        0.70
+    No Eligible                            %        30.22
+    Active Warps Per Scheduler          warp         7.43
+    Eligible Warps Per Scheduler        warp         1.43
+    ---------------------------- ----------- ------------
+
+    Section: Warp State Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Warp Cycles Per Issued Instruction             cycle        10.64
+    Warp Cycles Per Executed Instruction           cycle        10.94
+    Avg. Active Threads Per Warp                                18.80
+    Avg. Not Predicated Off Threads Per Warp                    17.31
+    ---------------------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 31.57%                                                                                          
+          Instructions are executed in warps, which are groups of 32 threads. Optimal instruction throughput is         
+          achieved if all 32 threads of a warp execute the same instruction. The chosen launch configuration, early     
+          thread completion, and divergent flow control can significantly lower the number of active threads in a warp  
+          per cycle. This workload achieves an average of 18.8 threads being active per cycle. This is further reduced  
+          to 17.3 threads per warp due to predication. The compiler may use predication to avoid an actual branch.      
+          Instead, all instructions are scheduled, but a per-thread condition code or predicate controls which threads  
+          execute the instructions. Try to avoid different execution paths within a warp when possible.                 
+
+    Section: Instruction Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Avg. Executed Instructions Per Scheduler        inst   179,979.99
+    Executed Instructions                           inst   21,597,599
+    Avg. Issued Instructions Per Scheduler          inst   184,911.88
+    Issued Instructions                             inst   22,189,426
+    ---------------------------------------- ----------- ------------
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   256
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                  2,048
+    Registers Per Thread             register/thread              16
+    Shared Memory Configuration Size           Kbyte           32.77
+    Driver Shared Memory Per Block        byte/block               0
+    Dynamic Shared Memory Per Block       byte/block               0
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM              30
+    Stack Size                                                 1,024
+    Threads                                   thread         524,288
+    # TPCs                                                        15
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                               17.07
+    -------------------------------- --------------- ---------------
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           16
+    Block Limit Registers                 block           16
+    Block Limit Shared Mem                block           16
+    Block Limit Warps                     block            4
+    Theoretical Active Warps per SM        warp           32
+    Theoretical Occupancy                     %          100
+    Achieved Occupancy                        %        92.87
+    Achieved Active Warps Per SM           warp        29.72
+    ------------------------------- ----------- ------------
+
+    Section: GPU and Memory Workload Distribution
+    -------------------------- ----------- ------------
+    Metric Name                Metric Unit Metric Value
+    -------------------------- ----------- ------------
+    Average DRAM Active Cycles       cycle    53,886.67
+    Total DRAM Elapsed Cycles        cycle    8,386,560
+    Average L1 Active Cycles         cycle   265,507.43
+    Total L1 Elapsed Cycles          cycle    8,068,150
+    Average L2 Active Cycles         cycle   247,351.08
+    Total L2 Elapsed Cycles          cycle    6,097,056
+    Average SM Active Cycles         cycle   265,507.43
+    Total SM Elapsed Cycles          cycle    8,068,150
+    Average SMSP Active Cycles       cycle      264,986
+    Total SMSP Elapsed Cycles        cycle   32,272,600
+    -------------------------- ----------- ------------
+
+    Section: Source Counters
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Branch Instructions Ratio           %         0.33
+    Branch Instructions              inst    7,190,128
+    Branch Efficiency                   %        61.80
+    Avg. Divergent Branches                  12,838.51
+    ------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 70.26%                                                                                          
+          This kernel has uncoalesced global accesses resulting in a total of 1836805 excessive sectors (72% of the     
+          total 2545555 sectors). Check the L2 Theoretical Sectors Global Excessive table for the primary source        
+          locations. The CUDA Programming Guide                                                                         
+          (https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#device-memory-accesses) has additional      
+          information on reducing uncoalesced device memory accesses.                                                   
+
+  count_kmers_kernel(const char *, int, int, unsigned int *, int) (1024, 1, 1)x(256, 1, 1), Context 1, Stream 7, Device 0, CC 7.5
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz         7.02
+    SM Frequency                    Ghz         1.34
+    Elapsed Cycles                cycle      137,402
+    Memory Throughput                 %        28.78
+    DRAM Throughput                   %         3.96
+    Duration                         us       102.14
+    L1/TEX Cache Throughput           %        43.27
+    L2 Cache Throughput               %        28.78
+    SM Active Cycles              cycle   133,828.33
+    Compute (SM) Throughput           %        67.47
+    ----------------------- ----------- ------------
+
+    OPT   Compute is more heavily utilized than Memory: Look at the Compute Workload Analysis section to see what the   
+          compute pipelines are spending their time doing. Also, consider whether any computation is redundant and      
+          could be reduced or moved to look-up tables.                                                                  
+
+    Section: GPU Speed Of Light Roofline Chart
+    INF   The ratio of peak float (fp32) to double (fp64) performance on this device is 32:1. The workload achieved 0%  
+          of this device's fp32 peak performance and 0% of its fp64 peak performance. See the Kernel Profiling Guide    
+          (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#roofline) for more details on roofline      
+          analysis.                                                                                                     
+
+    Section: PM Sampling
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Maximum Buffer Size             Kbyte       393.22
+    Dropped Samples                sample            0
+    Maximum Sampling Interval       cycle       20,000
+    # Pass Groups                                    1
+    ------------------------- ----------- ------------
+
+    WRN   Sampling interval is larger than 10% of the workload duration, which likely results in very few collected     
+          samples.                                                                                                      
+
+    Section: Compute Workload Analysis
+    -------------------- ----------- ------------
+    Metric Name          Metric Unit Metric Value
+    -------------------- ----------- ------------
+    Executed Ipc Active   inst/cycle         2.69
+    Executed Ipc Elapsed  inst/cycle         2.63
+    Issue Slots Busy               %        68.98
+    Issued Ipc Active     inst/cycle         2.76
+    SM Busy                        %        68.98
+    -------------------- ----------- ------------
+
+    INF   ALU is the highest-utilized pipeline (42.2%) based on active cycles, taking into account the rates of its     
+          different instructions. It executes integer and logic operations. It is well-utilized, but should not be a    
+          bottleneck.                                                                                                   
+
+    Section: Memory Workload Analysis
+    ----------------- ----------- ------------
+    Metric Name       Metric Unit Metric Value
+    ----------------- ----------- ------------
+    Memory Throughput     Gbyte/s        13.33
+    Mem Busy                    %        28.25
+    Max Bandwidth               %        28.78
+    L1/TEX Hit Rate             %        31.52
+    L2 Hit Rate                 %        97.40
+    Mem Pipes Busy              %        19.24
+    ----------------- ----------- ------------
+
+    Section: Memory Workload Analysis Tables
+    OPT   Est. Speedup: 21.5%                                                                                           
+          The memory access pattern for global loads from L1TEX might not be optimal. On average, only 16.1 of the 32   
+          bytes transmitted per sector are utilized by each thread. This could possibly be caused by a stride between   
+          threads. Check the Source Counters section for uncoalesced global loads.                                      
+
+    Section: Scheduler Statistics
+    ---------------------------- ----------- ------------
+    Metric Name                  Metric Unit Metric Value
+    ---------------------------- ----------- ------------
+    One or More Eligible                   %        69.15
+    Issued Warp Per Scheduler                        0.69
+    No Eligible                            %        30.85
+    Active Warps Per Scheduler          warp         7.38
+    Eligible Warps Per Scheduler        warp         1.41
+    ---------------------------- ----------- ------------
+
+    Section: Warp State Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Warp Cycles Per Issued Instruction             cycle        10.67
+    Warp Cycles Per Executed Instruction           cycle        10.96
+    Avg. Active Threads Per Warp                                18.83
+    Avg. Not Predicated Off Threads Per Warp                    17.33
+    ---------------------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 30.93%                                                                                          
+          Instructions are executed in warps, which are groups of 32 threads. Optimal instruction throughput is         
+          achieved if all 32 threads of a warp execute the same instruction. The chosen launch configuration, early     
+          thread completion, and divergent flow control can significantly lower the number of active threads in a warp  
+          per cycle. This workload achieves an average of 18.8 threads being active per cycle. This is further reduced  
+          to 17.3 threads per warp due to predication. The compiler may use predication to avoid an actual branch.      
+          Instead, all instructions are scheduled, but a per-thread condition code or predicate controls which threads  
+          execute the instructions. Try to avoid different execution paths within a warp when possible.                 
+
+    Section: Instruction Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Avg. Executed Instructions Per Scheduler        inst    89,834.84
+    Executed Instructions                           inst   10,780,181
+    Avg. Issued Instructions Per Scheduler          inst    92,317.97
+    Issued Instructions                             inst   11,078,156
+    ---------------------------------------- ----------- ------------
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   256
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                  1,024
+    Registers Per Thread             register/thread              16
+    Shared Memory Configuration Size           Kbyte           32.77
+    Driver Shared Memory Per Block        byte/block               0
+    Dynamic Shared Memory Per Block       byte/block               0
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM              30
+    Stack Size                                                 1,024
+    Threads                                   thread         262,144
+    # TPCs                                                        15
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                                8.53
+    -------------------------------- --------------- ---------------
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           16
+    Block Limit Registers                 block           16
+    Block Limit Shared Mem                block           16
+    Block Limit Warps                     block            4
+    Theoretical Active Warps per SM        warp           32
+    Theoretical Occupancy                     %          100
+    Achieved Occupancy                        %        92.05
+    Achieved Active Warps Per SM           warp        29.46
+    ------------------------------- ----------- ------------
+
+    Section: GPU and Memory Workload Distribution
+    -------------------------- ----------- ------------
+    Metric Name                Metric Unit Metric Value
+    -------------------------- ----------- ------------
+    Average DRAM Active Cycles       cycle       28,368
+    Total DRAM Elapsed Cycles        cycle    4,299,776
+    Average L1 Active Cycles         cycle   133,828.33
+    Total L1 Elapsed Cycles          cycle    4,104,750
+    Average L2 Active Cycles         cycle   123,815.08
+    Total L2 Elapsed Cycles          cycle    3,098,808
+    Average SM Active Cycles         cycle   133,828.33
+    Total SM Elapsed Cycles          cycle    4,104,750
+    Average SMSP Active Cycles       cycle   133,504.49
+    Total SMSP Elapsed Cycles        cycle   16,419,000
+    -------------------------- ----------- ------------
+
+    Section: Source Counters
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Branch Instructions Ratio           %         0.33
+    Branch Instructions              inst    3,588,779
+    Branch Efficiency                   %        61.82
+    Avg. Divergent Branches                   6,405.84
+    ------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 69.23%                                                                                          
+          This kernel has uncoalesced global accesses resulting in a total of 918385 excessive sectors (72% of the      
+          total 1272175 sectors). Check the L2 Theoretical Sectors Global Excessive table for the primary source        
+          locations. The CUDA Programming Guide                                                                         
+          (https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#device-memory-accesses) has additional      
+          information on reducing uncoalesced device memory accesses.                                                   
+

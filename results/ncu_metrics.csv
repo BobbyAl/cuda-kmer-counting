@@ -1,0 +1,13 @@
+dataset,implementation,k,Memory Throughput (%),Occupancy (%),Active Threads/Warp,L1 Hit Rate (%),L2 Hit Rate (%),IPC
+ecoli,gpu_naive,4,8.44,87.36,21.67,19.9,96.93,0.38
+ecoli,gpu_naive,8,33.62,95.22,20.94,29.57,98.0,2.66
+ecoli,gpu_naive,12,19.82,86.36,20.68,39.78,6.53,0.27
+ecoli,gpu_optimized,4,6.72,72.51,19.83,99.22,99.76,0.96
+ecoli,gpu_optimized,8,6.27,72.36,17.26,98.82,99.93,0.84
+ecoli,gpu_optimized,12,6.09,72.51,15.73,98.87,99.72,0.79
+yeast,gpu_naive,4,8.5,87.77,19.93,20.87,96.48,0.42
+yeast,gpu_naive,8,29.94,93.87,18.82,31.51,97.84,2.74
+yeast,gpu_naive,12,19.5,86.0,18.35,42.37,6.39,0.32
+yeast,gpu_optimized,4,6.6,72.87,19.21,99.16,99.66,0.95
+yeast,gpu_optimized,8,6.19,73.32,16.55,98.84,99.84,0.83
+yeast,gpu_optimized,12,6.04,73.1,15.0,98.91,99.85,0.78

@@ -1,0 +1,16 @@
+Reading sequence from ../data/ncbi_dataset/ncbi_dataset/data/GCF_000005845.2/GCF_000005845.2_ASM584v2_genomic.fna...
+Sequence length: 4641652 bases
+Launching optimized GPU kernel with 1024 blocks of 256 threads each
+Found 1021 unique 12-mers
+Optimized GPU time: 0.00411901 seconds
+Top 10 most frequent k-mers:
+AAAAAAATTTTT: 3296770
+AAAAAAAGCTGG: 20127
+AAAAAAATGGCG: 20078
+AAAAAAACTGGC: 19847
+AAAAAAACGCTG: 18686
+AAAAAAAGGCGG: 16866
+AAAAAAAGCAGC: 16849
+AAAAAAACGGCG: 16588
+AAAAAAATGCCG: 15395
+AAAAAAACAGCA: 15394

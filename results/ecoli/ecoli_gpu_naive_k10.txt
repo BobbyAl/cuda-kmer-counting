@@ -1,0 +1,16 @@
+Reading sequence from ../data/ncbi_dataset/ncbi_dataset/data/GCF_000005845.2/GCF_000005845.2_ASM584v2_genomic.fna...
+Sequence length: 4641652 bases
+Processing sequence in chunks of 1000000 bases
+Found 898115 unique 10-mers
+GPU time: 0.00693511 seconds
+Top 10 most frequent k-mers: 
+CCAGCGCCAG: 448
+CGCATCCGGC: 438
+GCATCCGGCA: 418
+GCCGCATCCG: 412
+CAGCGCCAGC: 411
+GCCGGATGCG: 410
+TGCCGGATGC: 407
+CTGGCGCTGG: 400
+GCTGGCGCTG: 396
+GGCGCTGGCG: 368

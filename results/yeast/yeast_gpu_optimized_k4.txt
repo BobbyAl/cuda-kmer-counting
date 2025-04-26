@@ -1,0 +1,16 @@
+Reading sequence from ../data/ncbi_dataset_saccharomyces_cerevisiae/ncbi_dataset/data/GCF_000146045.2/GCF_000146045.2_R64_genomic.fna...
+Sequence length: 12158327 bases
+Launching optimized GPU kernel with 1024 blocks of 256 threads each
+Found 256 unique 4-mers
+Optimized GPU time: 0.00167972 seconds
+Top 10 most frequent k-mers:
+TTTT: 53991
+AAAA: 51894
+TTTG: 49853
+AAAT: 49032
+AGAA: 46669
+AAGA: 46554
+ATTT: 45516
+TTGT: 44131
+CAAA: 43021
+AAAG: 42466
